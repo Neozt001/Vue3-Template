@@ -9,12 +9,34 @@
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
-  <body>
+  <body class="backgroundColor">
     <div id="app">
-      <div class="nav-bar"></div>
+      <div class="nav-bar">
 
-      <h1>{{ intro }}</h1>
+        <h1>{{ intro }}</h1>
       
+        <h1>{{ name }}</h1>
+        <h1> hide{{ hide }}</h1>
+
+        <h1 v-for="person in nameList" :key="person.name">
+          {{ person.name }} - {{ person.age }}
+        </h1>
+
+      </div>
+      <input v-model="name" placeholder="Enter your name" />
+      
+      <!-- <h1 v-for="i in list" :key="i">{{ i }}</h1> -->
+
+      <div v-for = "i in list" :key = "i" v-show = "!hide">
+        <h1 v-if = "i % 2 != 0" class = "alert" > {{ i }} </h1>
+        <h1 v-else class="normal" > {{ i }} </h1>
+      </div>
+
+      <input v-model="nr" placeholder="Enter a number" />
+      <br>
+      <button @click="add">Add</button>
+      <br>
+      <button @click="hideList">HideList</button>
     </div>
 
     <!-- Import App -->
