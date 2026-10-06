@@ -23,6 +23,9 @@ const app = Vue.createApp({
         hideList(){
             this.hide = !this.hide
             console.log(this.hide + "Hello")
+        },
+        addPerson(){
+            this.nameList.push({name: this.name, age: this.age})
         }
 
     },
